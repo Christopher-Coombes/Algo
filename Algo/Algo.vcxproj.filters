@@ -16,24 +16,42 @@
     <Filter Include="Source Files\Data Structures">
       <UniqueIdentifier>{83241613-6ded-46be-9ff9-ae26ed05a593}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Algorithms">
+      <UniqueIdentifier>{7eacc615-bf6a-471d-9634-d155be037f70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\General">
+      <UniqueIdentifier>{1b3e320a-7926-419d-bc51-75719dc27665}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Algorithms">
+      <UniqueIdentifier>{bf71ec5a-cb4c-4b61-bbd9-9ac68dd94fdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Data Structures">
+      <UniqueIdentifier>{75014c32-f1ab-4872-ab68-ca9ca0f69d28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\General">
+      <UniqueIdentifier>{2afdd3a3-872e-4194-a20f-48e353c94c4e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Algo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="bst.cpp">
+    <ClCompile Include="Data Structures\linked_list.cpp">
       <Filter>Source Files\Data Structures</Filter>
     </ClCompile>
-    <ClCompile Include="skiplist.cpp">
-      <Filter>Source Files\Data Structures</Filter>
-    </ClCompile>
-    <ClCompile Include="helpers.cpp">
-      <Filter>Header Files</Filter>
+    <ClCompile Include="General\utils.cpp">
+      <Filter>Source Files\General</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="helpers.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Data Structures\linked_list.h">
+      <Filter>Header Files\Data Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="General\everything.h">
+      <Filter>Header Files\General</Filter>
+    </ClInclude>
+    <ClInclude Include="General\utils.h">
+      <Filter>Header Files\General</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

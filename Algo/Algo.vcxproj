@@ -140,12 +140,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Algo.cpp" />
-    <ClCompile Include="bst.cpp" />
-    <ClCompile Include="helpers.cpp" />
-    <ClCompile Include="skiplist.cpp" />
+    <ClCompile Include="Data Structures\linked_list.cpp" />
+    <ClCompile Include="General\utils.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="helpers.h" />
+    <ClInclude Include="Data Structures\linked_list.h" />
+    <ClInclude Include="General\everything.h" />
+    <ClInclude Include="General\utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

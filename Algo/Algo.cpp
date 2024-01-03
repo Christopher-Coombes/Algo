@@ -1,11 +1,13 @@
-
-
+#include "General/everything.h"
 #include <iostream>
-
-int bst_main();
-int skiplist_main();
+#include <vector>
+#include <algorithm>
 
 int main() {
-    // bst_main();
-    skiplist_main();
+	std::vector<int> test{ 0, 1, 5, 3, 2, 5 };
+	std::sort(test.begin(), test.end());
+
+	tester::linked_list::all(std::cout);
+
+	return 0;
 }
