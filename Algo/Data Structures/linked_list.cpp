@@ -1,10 +1,11 @@
 #include "linked_list.h"
 
 namespace ds {
-
+	// Node struct
 	template<class T> linked_list<T>::node::node(T val) : val(val), next(nullptr) {}
 	template<class T> linked_list<T>::node::node(T val, node_ptr next) : val(val), next(std::move(next)) {}
 
+	// Constructors
 	template<class T> linked_list<T>::linked_list() : head(nullptr) {}
 	template<class T> linked_list<T>::linked_list(std::initializer_list<T> il) {
 		node* tail = nullptr;
@@ -18,6 +19,8 @@ namespace ds {
 			}
 		}
 	}
+	
+	// Other methods
 	template<class T> int linked_list<T>::length() const {
 		node* n = head.get();
 		int i = 0;
@@ -26,17 +29,6 @@ namespace ds {
 			n = n->next.get();
 		}
 		return i;
-	}
-	template<class T> T linked_list<T>::at(int i) const {
-		if (i >= 0) {
-			node* n = head.get();
-			while (i && n) {
-				i--;
-				n = n->next.get();
-			}
-			if (n) return n->val;
-		}
-		throw std::out_of_range("Linked list index out of range");
 	}
 	template<class T> void linked_list<T>::push(T elem) {
 		head = std::make_unique<node>(elem, std::move(head));
@@ -49,7 +41,18 @@ namespace ds {
 		}
 		throw std::out_of_range("Pop from empty linked list");
 	}
-	template<class T> T linked_list<T>::remove_at(iterator i) {
+	template<class T> T linked_list<T>::at(int i) const {
+		if (i >= 0) {
+			node* n = head.get();
+			while (i && n) {
+				i--;
+				n = n->next.get();
+			}
+			if (n) return n->val;
+		}
+		throw std::out_of_range("Linked list index out of range");
+	}
+	template<class T> T linked_list<T>::remove(iterator i) {
 		iterator end = this->end();
 		if (i != end) {
 			T temp = *i;
@@ -90,21 +93,8 @@ namespace ds {
 		}
 		throw std::out_of_range("Linked list index out of range");
 	}
-	template<class T> void linked_list<T>::insert_at(iterator i, T elem) {
-		iterator end = this->end();
-		if (i == begin()) {
-			push(elem);
-			return;
-		}
-		iterator p, it = begin();
-		while (it != end) {
-			p = it++;
-			if (i == it) {
-				p.tgt->next = std::make_unique<node>(elem, std::move(p.tgt->next));
-				return;
-			}
-		}
-		throw std::logic_error("Bad iterator?");
+	template<class T> void linked_list<T>::insert_after(iterator i, T elem) {
+		i.tgt->next = std::make_unique<node>(elem, std::move(i.tgt->next));
 	}
 	template<class T> void linked_list<T>::insert_at(int i, T elem) {
 		if (i >= 0 && head) {
@@ -126,10 +116,10 @@ namespace ds {
 		throw std::out_of_range("Linked list index out of range");
 	}
 
+	// Iterator methods
 	template<class T> typename linked_list<T>::iterator linked_list<T>::begin() const {
 		return iterator(head.get());
 	}
-
 	template<class T> typename linked_list<T>::iterator linked_list<T>::end() const {
 		return iterator(nullptr);
 	}
@@ -181,17 +171,17 @@ namespace tester {
 			stream << to_string(ll) << '\n';
 
 			auto it = ll.begin(); it++; it++;
-			stream << "Remove begin + 2: " << ll.remove_at(it) << " // ";
+			stream << "Remove begin + 2: " << ll.remove(it) << " // ";
 			stream << to_string(ll) << '\n';
 
 			it = ll.begin(); it++; it++;
-			stream << "Insert 9 at begin + 2: ";
-			ll.insert_at(it, 9);
+			stream << "Insert 9 after begin + 2: ";
+			ll.insert_after(it, 9);
 			stream << to_string(ll) << '\n';
 
-			it = ll.begin(); it++; it++; it++; it++;
-			stream << "Insert 10 at begin + 4: ";
-			ll.insert_at(it, 10);
+			it = ll.begin(); it++; it++; it++;
+			stream << "Insert 10 after begin + 3: ";
+			ll.insert_after(it, 10);
 			stream << to_string(ll) << '\n';
 
 			stream << "Insert 11 at index 5: ";

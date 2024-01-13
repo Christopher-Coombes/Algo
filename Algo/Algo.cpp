@@ -4,10 +4,7 @@
 #include <algorithm>
 
 int main() {
-	std::vector<int> test{ 0, 1, 5, 3, 2, 5 };
-	std::sort(test.begin(), test.end());
-
-	tester::linked_list::all(std::cout);
+	tester::deque::all(std::cout);
 
 	return 0;
 }

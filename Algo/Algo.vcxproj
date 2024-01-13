@@ -140,10 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Algo.cpp" />
+    <ClCompile Include="Data Structures\deque.cpp" />
     <ClCompile Include="Data Structures\linked_list.cpp" />
     <ClCompile Include="General\utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Data Structures\deque.h" />
     <ClInclude Include="Data Structures\linked_list.h" />
     <ClInclude Include="General\everything.h" />
     <ClInclude Include="General\utils.h" />
